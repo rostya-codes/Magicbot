@@ -15,3 +15,13 @@ def calculator_kb():
     builder.adjust(*[4] * 4)  # 4x4+1 (numbers, operations + BACK) keyboard buttons structure
 
     return builder.as_markup(resize_keyboard=True)
+
+
+def profile(text: str | list):
+    builder = ReplyKeyboardBuilder()
+
+    if isinstance(text, str):  # If text variable is str datatype
+        text = [text]
+
+    [builder.button(text=txt) for txt in text]
+    return builder.as_markup(resize_keyboard=True, one_time_keyboard=True)
