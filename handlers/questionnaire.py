@@ -1,11 +1,11 @@
-from aiogram import Router, F
-from aiogram.types import Message
+from aiogram import F, Router
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
+from aiogram.types import Message
 
-from utils.states import Form
 from keyboards.builders import profile
 from keyboards.reply import rmk
+from utils.states import Form
 
 router = Router()
 

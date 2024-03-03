@@ -1,7 +1,6 @@
 from aiogram.types import (KeyboardButton, KeyboardButtonPollType,
                            ReplyKeyboardMarkup, ReplyKeyboardRemove)
 
-
 main = ReplyKeyboardMarkup(
     keyboard=[
         [  # первый ряд

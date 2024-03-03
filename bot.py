@@ -7,7 +7,7 @@ from aiogram.enums import ParseMode
 
 from callbacks import pagination
 from config_reader import config
-from handlers import bot_messages, user_commands, questionnaire
+from handlers import bot_messages, questionnaire, user_commands
 
 
 async def main() -> None:
