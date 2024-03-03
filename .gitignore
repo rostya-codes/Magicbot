@@ -1,0 +1,8 @@
+__pycache__
+.idea
+callbacks/__pycache__
+data/__pycache__
+handlers/__pycache__
+keyboards/__pycache__
+.env
+venv
