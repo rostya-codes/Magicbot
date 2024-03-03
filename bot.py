@@ -7,7 +7,7 @@ from aiogram.enums import ParseMode
 
 from callbacks import pagination
 from config_reader import config
-from handlers import bot_messages, user_commands
+from handlers import bot_messages, user_commands, questionnaire
 
 
 async def main() -> None:
@@ -20,6 +20,7 @@ async def main() -> None:
     dp.include_routers(  # Порядок важен
         user_commands.router,
         pagination.router,
+        questionnaire.router,
         bot_messages.router
     )
 

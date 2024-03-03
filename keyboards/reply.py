@@ -1,5 +1,6 @@
 from aiogram.types import (KeyboardButton, KeyboardButtonPollType,
-                           ReplyKeyboardMarkup)
+                           ReplyKeyboardMarkup, ReplyKeyboardRemove)
+
 
 main = ReplyKeyboardMarkup(
     keyboard=[
@@ -31,3 +32,5 @@ special = ReplyKeyboardMarkup(
     ],
     resize_keyboard=True,
 )
+
+rmk = ReplyKeyboardRemove()
