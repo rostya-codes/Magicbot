@@ -8,3 +8,11 @@ links = InlineKeyboardMarkup(
         ]
     ]
 )
+
+sub_channel = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text='Subscribe', url='https://t.me/rmpyc')
+        ]
+    ]
+)

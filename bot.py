@@ -8,6 +8,8 @@ from aiogram.enums import ParseMode
 from callbacks import pagination
 from config_reader import config
 from handlers import bot_messages, questionnaire, user_commands
+from middlewares.antiflood import AntiFloodMiddleware
+from middlewares.check_sub import CheckSubscription
 
 
 async def main() -> None:
@@ -16,6 +18,11 @@ async def main() -> None:
     bot = Bot(config.bot_token.get_secret_value(), parse_mode=ParseMode.HTML)
     # All handlers should be attached to the Router (or Dispatcher)
     dp = Dispatcher()
+
+    # todo: Исправить этот мидлварь
+    #dp.message.middleware(CheckSubscription())  # Регистрация middleware
+
+    dp.message.middleware(AntiFloodMiddleware(3))  # Как аргумент указывается время в секундах для предотвращения флуда(спама)
 
     dp.include_routers(  # Порядок важен
         user_commands.router,
