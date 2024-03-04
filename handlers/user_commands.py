@@ -6,12 +6,14 @@ from aiogram.filters import Command, CommandObject, CommandStart
 from aiogram.types import Message
 from icecream import ic
 
+from filters.is_admin import IsAdmin
+from filters.is_digit_or_float import CheckForDigit
 from keyboards import reply
 
 router = Router()
 
 
-@router.message(CommandStart())
+@router.message(CommandStart(), IsAdmin(6083807927))
 async def command_start_handler(message: Message) -> None:
     """
     This handler receives messages with `/start` command
@@ -22,6 +24,11 @@ async def command_start_handler(message: Message) -> None:
     # method automatically or call API method directly via
     # Bot instance: `bot.send_message(chat_id=message.chat.id, ...)`
     await message.answer(f"hello, <b>{message.from_user.full_name}</b>!", reply_markup=reply.main)
+
+
+@router.message(Command('pay'), CheckForDigit())  # /pay 1234
+async def pay_the_order(message: Message, command: CommandObject) -> None:
+    await message.answer('You have successfully paid for the item!')
 
 
 @router.message(Command(commands=['random', 'rn', 'random-number', 'r', 'randomize', 'randint', 'randnum']))
